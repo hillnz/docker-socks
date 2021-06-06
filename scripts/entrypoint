@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+set -e
+
+# Configure SOCKS port
+# shellcheck disable=SC2016
+envsubst '$SOCKS_PORT' </etc/sockd.conf >/tmp/sockd.conf
+mv /tmp/sockd.conf /etc/sockd.conf
+
+exec sockd "$@"
