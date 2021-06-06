@@ -2,7 +2,8 @@ FROM alpine:3.13.5
 
 RUN apk --no-cache add \
     dante-server \
-    gettext
+    gettext && \
+    rm /etc/sockd.conf
 
 ENV SOCKS_PORT=1080 \
     SOCKS_INTERFACE_INTERNAL=eth0 \
