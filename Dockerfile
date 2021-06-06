@@ -5,7 +5,8 @@ RUN apk --no-cache add \
     gettext
 
 ENV SOCKS_PORT=1080 \
-    DANTE_CONF=/etc/sockd.conf
+    SOCKS_INTERFACE_INTERNAL=eth0 \
+    SOCKS_INTERFACE_EXTERNAL=eth0
 
 COPY scripts /usr/local/bin
 COPY conf /etc

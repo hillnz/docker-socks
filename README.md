@@ -29,10 +29,13 @@ Pass ports for `docker-compose` in `ports` or to `docker run` with `-p <host_por
 ### Environment Variables
 
 Pass values for `docker-compose` in `environment` or to `docker run` with `-e "<VAR_NAME>:<value>"`.
+These values will only take effect if you haven't mounted your own sockd.conf.
 
 | Variable | Default | Example | Description |
 |---|---|---|---|
 | `SOCKS_PORT` | `1080` | `1234` | SOCKS proxy listening port |
+| `SOCKS_INTERFACE_INTERNAL` | `eth0` | `eth1` | SOCKS proxy internal listening interface |
+| `SOCKS_INTERFACE_EXTERNAL` | `eth0` | `eth1` | SOCKS proxy external interface |
 
 ### Mounts
 
