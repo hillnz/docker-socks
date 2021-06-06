@@ -2,9 +2,11 @@
 
 set -e
 
-# Configure SOCKS port
-# shellcheck disable=SC2016
-envsubst '$SOCKS_PORT' </etc/sockd.conf >/tmp/sockd.conf
-mv /tmp/sockd.conf /etc/sockd.conf
+if [ "$DANTE_CONF" = "/etc/sockd.conf" ]; then
+    # Configure SOCKS port
+    # shellcheck disable=SC2016
+    envsubst '$SOCKS_PORT' </etc/sockd.conf >/tmp/sockd.conf
+    mv /tmp/sockd.conf /etc/sockd.conf
+fi
 
 exec sockd "$@"

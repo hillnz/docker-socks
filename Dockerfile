@@ -4,7 +4,8 @@ RUN apk --no-cache add \
     dante-server \
     gettext
 
-ENV SOCKS_PORT=1080
+ENV SOCKS_PORT=1080 \
+    DANTE_CONF=/etc/sockd.conf
 
 COPY scripts /usr/local/bin
 COPY conf /etc
